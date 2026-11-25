@@ -1,4 +1,4 @@
-# Smart Device 120Hz API
+# Smart Device API
 
 REST API quản lý thiết bị thông minh, sử dụng Node.js, SQLite và Prisma.
 
