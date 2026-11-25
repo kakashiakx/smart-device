@@ -8,7 +8,7 @@ export interface Device extends CreateDeviceInput {
 
 const devices: Device[] = [
   {
-    id: "smart-device-demo",
+    id: "smart-device",
     name: "Premium Smart Device",
     refreshRateHz: 120,
     frameRateFps: 120,
