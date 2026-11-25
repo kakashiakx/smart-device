@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: Smart Device 120Hz API
+  title: Smart Device API
   version: 1.0.0
   description: API for managing smart devices.
 servers:
