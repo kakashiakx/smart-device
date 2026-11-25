@@ -1,41 +1,39 @@
-# Smart Device 120 Hz API
+# Smart Device 120Hz API
 
-A REST API for managing specifications of premium smart devices.
+REST API quản lý thiết bị thông minh, sử dụng Node.js, SQLite và Prisma.
 
-## Features
+## Yêu cầu
 
-- 120 Hz display refresh rate
-- 120 FPS rendering support
-- Dolby Atmos and DTS:X audio metadata
-- Dynamic AMOLED 2X and Ultra Retina XDR display profiles
-- Request validation with Zod
-- TypeScript and Express 5
-- Health and device endpoints
+- Node.js 20+
+- Docker và Docker Compose
 
-## Requirements
+## Chạy bằng Docker
 
-- Node.js 20 or later
-- npm
+```bash
+cp .env.example .env
+docker compose up --build
+```
 
-## Installation
+API: http://localhost:3000  
+Swagger: http://localhost:3000/docs
+
+## Chạy local
 
 ```bash
 npm install
-npm run dev
+cp .env.example .env
+npx prisma generate
+npx prisma migrate deploy
+npm start
 ```
 
-The API starts at `http://localhost:3000`.
-
-## Endpoints
+## API endpoints
 
 - `GET /health`
-- `GET /api/v1/devices`
-- `GET /api/v1/devices/:id`
-- `POST /api/v1/devices`
-- `DELETE /api/v1/devices/:id`
+- `GET /api/devices`
+- `POST /api/devices`
+- `GET /api/devices/:id`
+- `PUT /api/devices/:id`
+- `DELETE /api/devices/:id`
 
-## Example
-
-```bash
-curl http://localhost:3000/api/v1/devices
-```
+OpenAPI specification: `openapi.yaml`

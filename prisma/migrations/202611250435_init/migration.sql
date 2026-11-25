@@ -1,0 +1,8 @@
+CREATE TABLE "Device" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "name" TEXT NOT NOT NULL,
+    "type" TEXT NOT NULL,
+    "status" TEXT NOT NULL DEFAULT 'active',
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL
+);

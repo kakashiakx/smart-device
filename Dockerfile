@@ -1,28 +1,16 @@
-FROM node:20-alpine AS build
-
-WORKDIR /app
-
-COPY package*.json ./
-RUN npm ci
-
-COPY tsconfig.json ./
-COPY src ./src
-RUN npm run build
-
-FROM node:20-alpine AS runtime
-
-ENV NODE_ENV=production
-ENV PORT=3000
+FROM node:20-alpine
 
 WORKDIR /app
 
 COPY package*.json ./
 RUN npm ci --omit=dev
 
-COPY --from=build /app/dist ./dist
+COPY prisma ./prisma
+COPY openapi.yaml ./openapi.yaml
+COPY src ./src
 
-USER node
+RUN npx prisma generate
 
 EXPOSE 3000
 
-CMD ["node", "dist/server.js"]
+CMD ["sh", "-c", "npx prisma migrate deploy && node src/server.js"]
