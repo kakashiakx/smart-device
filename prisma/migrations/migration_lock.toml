@@ -1,5 +1,5 @@
 {
-  "name": "smart-device-120hz",
+  "name": "smart-device",
   "schema": "../../schema.prisma",
   "migrationVersion": "202611250435_init",
   "startedAt": "2026-11-25T04:35:00.000Z"
