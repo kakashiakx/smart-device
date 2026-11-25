@@ -1,0 +1,17 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DATABASE_URL: file:/data/app.db
+    volumes:
+      - smart-device-data:/data
+    restart: unless-stopped
+
+volumes:
+  smart-device-data:
